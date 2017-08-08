@@ -91,14 +91,28 @@ FCM [topic messaging](https://firebase.google.com/docs/cloud-messaging/topic-mes
 
 ```ruby
 response = fcm.send_with_notification_key("/topics/yourTopic",
-            data: {message: "This is a FCM Topic Message!")
+            data: {message: "This is a FCM Topic Message!"})
 ```
 
 Or you can use the helper:
 
 ```ruby
 response = fcm.send_to_topic("yourTopic",
-            data: {message: "This is a FCM Topic Message!")
+            data: {message: "This is a FCM Topic Message!"})
+```
+
+You can also send a message to multiple topics:
+
+```ruby
+response = fcm.send_to_multiple_topics("'dogs' in topics || 'cats' in topics",
+            data: {message: "This is a FCM Multiple Topics Message!"})
+```
+
+To send a message to all devices use topic `all`:
+
+```ruby
+response = fcm.send_to_topic("all",
+            data: {message: "This is a FCM Topic Message!"})
 ```
 
 ## Mobile Clients
